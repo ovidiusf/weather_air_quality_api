@@ -1,25 +1,28 @@
 let latitude, longitude;
+const button = document.querySelector('#button');
+
 const getPosition = () => {
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(async position => {
             let latitude, longitude, weather, air;
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            document.getElementById('latitude').textContent = latitude.toFixed(2);
+            document.getElementById('longitude').textContent = longitude.toFixed(2);
+            const api_url = `weather/${latitude},${longitude}`;
+            const response = await fetch(api_url);
+            const json = await response.json();
+            weather = json.weather.currently;
+
+            document.getElementById('summary').textContent = weather.summary;
+            document.getElementById('temperature').textContent = weather.temperature;
             try {
-                latitude = position.coords.latitude;
-                longitude = position.coords.longitude;
-                document.getElementById('latitude').textContent = latitude.toFixed(2);
-                document.getElementById('longitude').textContent = longitude.toFixed(2);
-                const api_url = `weather/${latitude},${longitude}`;
-                const response = await fetch(api_url);
-                const json = await response.json();
-                weather = json.weather.currently;
                 air = json.air_quality.results[0].measurements[0];
-                document.getElementById('summary').textContent = weather.summary;
-                document.getElementById('temperature').textContent = weather.temperature;
                 document.getElementById('aq_parameter').textContent = air.parameter;
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_units').textContent = air.unit;
                 document.getElementById('aq_date').textContent = air.lastUpdated;
-                // console.log(json);
+                console.log(json);
             } catch (error) {
                 console.log(error);
                 air = {value: -1};
@@ -41,6 +44,7 @@ const getPosition = () => {
         console.log('geolocation not available.')
     }
 };
+
 getPosition();
 
 
