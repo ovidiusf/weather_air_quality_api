@@ -1,3 +1,4 @@
+let latitude, longitude;
 const getPosition = () => {
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(async position => {
