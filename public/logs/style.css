@@ -1,0 +1,8 @@
+.background {
+  background-color: aqua;
+}
+
+#weather-map {
+  height: 500px;
+  margin: 8px 0px;
+}
