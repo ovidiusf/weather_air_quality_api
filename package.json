@@ -1,7 +1,7 @@
 {
   "name": "weather_api",
   "version": "1.0.0",
-  "description": "weather api application",
+  "description": "weather and air quality api application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,9 @@
   },
   "keywords": [
     "weather",
-    "weather",
     "api",
-    "weather",
-    "app"
+    "app",
+    "air quality"
   ],
   "author": "Ovidiu Fosalau",
   "license": "MIT",

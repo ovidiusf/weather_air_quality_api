@@ -1,4 +1,3 @@
-
 // Making a map and tiles
 const mymap = L.map('weather-map').setView([0, 0], 1.5);
 
@@ -12,26 +11,11 @@ const tiles = L.tileLayer(tileUrl, {
     accessToken: 'your.mapbox.access.token'
 });
 
-
-
 async function getData() {
     const response = await fetch('/api');
     const data = await response.json();
 
     for (item of data) {
-        // const root = document.createElement('p');
-        // const mood = document.createElement('div');
-        // const date = document.createElement('div');
-        // const geo = document.createElement('div');
-
-        // geo.textContent = `${item.latitude.toFixed(2)}° , ${item.longitude.toFixed(2)}°`
-        // const dateString = new Date(item.timestamp).toLocaleString();
-        // date.textContent = dateString;
-        // root.classList.toggle('background');
-
-        // root.append(mood, geo, date);
-        // document.body.append(root);
-
         const marker = L.marker([item.latitude, item.longitude]).addTo(mymap);
 
         let txt = `The weather here at ${item.latitude}&deg;,
@@ -48,7 +32,7 @@ async function getData() {
         }
         marker.bindPopup(txt);
     }
-    console.log(data);
+    // console.log(data);
 }
 
 getData();
