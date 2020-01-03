@@ -16,7 +16,10 @@ async function getData() {
     const data = await response.json();
 
     for (item of data) {
-        const marker = L.marker([item.latitude, item.longitude]).addTo(mymap);
+        // randomized exact location of the marker to protect users
+        latitude_changed = Math.round( item.latitude * 1e2 ) / 1e2 + Math.random() * 0.1;
+        longitude_changed = Math.round( item.longitude * 1e2 ) / 1e2 +  Math.random() * 0.1;
+        const marker = L.marker([latitude_changed, longitude_changed]).addTo(mymap);
 
         let txt = `The weather here at ${item.latitude}&deg;,
         ${item.longitude}&deg; is ${item.weather.summary} with
@@ -32,7 +35,6 @@ async function getData() {
         }
         marker.bindPopup(txt);
     }
-    // console.log(data);
 }
 
 getData();
