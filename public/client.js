@@ -18,7 +18,7 @@ const getPosition = () => {
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_units').textContent = air.unit;
                 document.getElementById('aq_date').textContent = air.lastUpdated;
-                console.log(json);
+                // console.log(json);
             } catch (error) {
                 console.log(error);
                 air = {value: -1};
@@ -34,7 +34,7 @@ const getPosition = () => {
             };
             const db_response = await fetch('/api', options);
             const db_json = await db_response.json();
-            console.log(db_json);
+            // console.log(db_json);
         });
     } else {
         console.log('geolocation not available.')
