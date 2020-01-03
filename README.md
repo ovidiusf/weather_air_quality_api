@@ -3,7 +3,7 @@
 A weather and air quality small app, that works with geolocation, 2 apis , a node.js server and an internal database.
 
 ## Motivation
-The app is to exercise the use of a node.js server, which can get information from third party APIs, display it in the browser and post it in a database. Also,it is very useful to use such a server to hide api_keys, which can sometimes be confidential, not exposing them in the source code.
+This app is to exercise the use of a node.js server, which can get information from third party APIs, display it in the browser and post it in a database. Also,it is very useful to use such a server to hide api_keys, which can sometimes be confidential, not exposing them in the source code.
 
 ## Technologies used
 * [Node.js server](https://nodejs.org/en/)
@@ -14,6 +14,7 @@ The app is to exercise the use of a node.js server, which can get information fr
 * [NPM (to install the packages and run the start command)](https://www.npmjs.com/)
 * [Leaflet (to render the map)](https://leafletjs.com/)
 * [Dark Sky API](https://darksky.net/dev)
+* [Open AQ](https://openaq.org/#/?_k=d2ir92)
 
 ## Future Features
 * improve graphic design
